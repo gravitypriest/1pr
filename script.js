@@ -1,25 +1,41 @@
+var themes = [
+    { id: 'default', label: 'Default' },
+    { id: 'dark',  label: 'Dark' }
+    /*
+     *   Add more themes here. Match 'id' property
+     *   with the class name in the CSS file. See
+     *   1pr/stylesheets/themes/dark.css for example.
+     */
+];
+
+// aggregate string to remove all theme classes on theme change
+var allThemeClasses = '';
+themes.forEach(function(theme) {
+    allThemeClasses = allThemeClasses + ' ' + theme.id;
+});
+
+function setTheme(theme) {
+    $('body').removeClass(allThemeClasses);
+    if (theme !== 'default') {
+        $('body').addClass(theme);
+    }
+    localStorage.setItem('theme', theme);
+}
+
 $(document).ready(function() {
-    function setDarkTheme() {
-        $('body').addClass('dark');
-        $('#dark-button').hide();
-        $('#light-button').show();
-        localStorage.setItem('darkThemeEnabled', 1);
-    }
-
-    function setLightTheme() {
-        $('body').removeClass('dark');
-        $('#dark-button').show();
-        $('#light-button').hide();
-        localStorage.setItem('darkThemeEnabled', 0);
-    }
-
-    if (localStorage.getItem('darkThemeEnabled')
-        && localStorage.getItem('darkThemeEnabled') === '1') {
-        setDarkTheme();
+    if (localStorage.getItem('theme')) {
+        setTheme(localStorage.getItem('theme'));
     } else {
-        setLightTheme();
+        setTheme('default');
     }
 
-    $('#light-button').click(setLightTheme);
-    $('#dark-button').click(setDarkTheme);
+    themes.forEach(function(theme) {
+        var themeButton = document.createElement('button');
+        themeButton.id = 'theme-select-' + theme.id;
+        themeButton.innerHTML = theme.label;
+        themeButton.onclick = function() {
+            setTheme(theme.id);
+        };
+        $('.theme-buttons').append(themeButton);
+    });
 });

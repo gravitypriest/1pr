@@ -1,0 +1,25 @@
+body.dark {
+	background-color: #333;
+}
+
+.dark h1 {
+	color: #DDD;
+}
+
+.dark div {
+	color: #DDD;
+}
+
+.dark a {
+	color: #AAF;
+}
+
+.dark a:visited {
+	color: #DAC;
+}
+
+.dark button {
+	background-color: #444;
+	border-color: #444;
+	color: #DDD;
+}
