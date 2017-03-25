@@ -14,3 +14,43 @@ div {
 	margin-left: 25%;
 	margin-right: 25%;
 }
+
+button {
+	border-style: solid;
+	border-radius: 2px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.theme-buttons {
+	position:absolute;
+	left:10px;
+	bottom:10px;
+	margin: 0px;
+}
+
+body.dark {
+	background-color: #333;
+}
+
+.dark h1 {
+	color: #DDD;
+}
+
+.dark div {
+	color: #DDD;
+}
+
+.dark a {
+	color: #AAF;
+}
+
+.dark a:visited {
+	color: #DAC;
+}
+
+.dark button {
+	background-color: #444;
+	border-color: #444;
+	color: #DDD;
+}
