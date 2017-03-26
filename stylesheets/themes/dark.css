@@ -19,7 +19,12 @@ body.dark {
 }
 
 .dark button {
-	background-color: #444;
-	border-color: #444;
+	background-color: #555;
+	border-color: #555;
 	color: #DDD;
+}
+
+.dark button.selected-theme {
+	background-color: #444; 
+	border-color: #222
 }

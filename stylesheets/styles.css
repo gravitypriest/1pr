@@ -32,3 +32,8 @@ button {
 .theme-buttons > button {
 	margin-right: 5px;
 }
+
+button.selected-theme {
+	background-color: #AAA; 
+	border-color: #666
+}

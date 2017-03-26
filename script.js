@@ -16,19 +16,15 @@ themes.forEach(function(theme) {
 
 function setTheme(theme) {
     $('body').removeClass(allThemeClasses);
+    $('.theme-buttons > button').removeClass('selected-theme');
     if (theme !== 'default') {
         $('body').addClass(theme);
     }
     localStorage.setItem('theme', theme);
+    $('#theme-select-' + theme).addClass('selected-theme');
 }
 
 $(document).ready(function() {
-    if (localStorage.getItem('theme')) {
-        setTheme(localStorage.getItem('theme'));
-    } else {
-        setTheme('default');
-    }
-
     themes.forEach(function(theme) {
         var themeButton = document.createElement('button');
         themeButton.id = 'theme-select-' + theme.id;
@@ -38,4 +34,10 @@ $(document).ready(function() {
         };
         $('.theme-buttons').append(themeButton);
     });
+
+    if (localStorage.getItem('theme')) {
+        setTheme(localStorage.getItem('theme'));
+    } else {
+        setTheme('default');
+    }
 });
